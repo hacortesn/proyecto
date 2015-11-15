@@ -1,42 +1,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>net.kyo.ruto.social.mentions</groupId>
     <artifactId>api-rest-social-mentions</artifactId>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>api-rest-social-mentions Maven Webapp</name>
+    <name>api-rest-social-mentions</name>
     <url>http://maven.apache.org</url>
-    <properties>
-        <springframework.version>4.2.0.RELEASE</springframework.version>
-        <jackson.version>2.5.3</jackson.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${springframework.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>${springframework.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-
-    </dependencies>
+    <modules>
+        <module>server</module>
+        <module>example-consumer</module>
+    </modules>
     <build>
-        <finalName>api-rest-social-mentions</finalName>
+        <!--<finalName>api-rest-social-mentions</finalName>-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
+
 </project>
