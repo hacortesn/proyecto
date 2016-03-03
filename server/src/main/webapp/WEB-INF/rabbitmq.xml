@@ -7,7 +7,20 @@
        http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
 
 
-    <rabbit:connection-factory id="connectionFactory" host="127.0.0.1" username="guest" password="guest"/>
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>/WEB-INF/configuration.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <rabbit:connection-factory
+            id="connectionFactory"
+            host="${rabbitmq.host}"
+            port="${rabbitmq.port}"
+            username="${rabbitmq.user}"
+            password="${rabbitmq.password}"/>
 
     <rabbit:template id="amqpTemplate" connection-factory="connectionFactory"
                      exchange="myExchange" routing-key="foo.bar"/>
